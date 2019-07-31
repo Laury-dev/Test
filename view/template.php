@@ -19,19 +19,35 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="index.php?page=voyage">Parcourir<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.php?page=voyage">Parcourir<span class="sr-only"></span></a>
       </li>
-      <li class="nav-item">
+      <?php
+      if (!isset($_SESSION['login'])) {
+        echo'<li class="nav-item">
         <a class="nav-link" href="index.php?page=login">Se connecter<span class="sr-only"></span></a>
-        </li>
+        </li>';
+      } 
+      ?>
       <li class="nav-item">
         <a class="nav-link" href="index.php?page=add">Ajouter le voyage<span class="sr-only"></span></a>
       </li>
+
+      <?php
+      if (isset($_SESSION['login'])) {
+        echo'<li class="nav-item">
+        <a class="nav-link" href="index.php?page=suppr">Supprimer voyage<span class="sr-only"></span></a>
+      </li>';
+      } 
+      ?>
+
     </ul>
-    <form class="form-inline my-2 my-lg-0" method="post">
+    <?php
+      if (isset($_SESSION['login'])) {
+        echo'<form class="form-inline my-2 my-lg-0" method="post">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="deconnect" value="1">Déconnexion</button>
-    </form>
-    
+      </form>';
+      } 
+      ?>
   </div>
 </nav>
 

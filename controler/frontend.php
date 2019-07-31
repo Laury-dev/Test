@@ -19,6 +19,7 @@ function displayLoginAlerte(){
     require 'view/displayLoginAlerte.php';
 }
 
+
 function displayPage(){
     switch ($_GET['page']) {
         case 'voyages':
@@ -29,6 +30,9 @@ function displayPage(){
             break;
         case 'add':
             displayAdd();
+            break;
+        case 'alert':
+            displayLoginAlerte();
             break;
         default:
         displayTravels();

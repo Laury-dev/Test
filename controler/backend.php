@@ -4,23 +4,32 @@ require_once 'model/backendModel.php';
 
 function login(){
     $user = getUser($_POST['mail']);
-
     if ($user) {
         $pass = $_POST['pass'];
         if (password_verify ($pass , $user['password'])) {
             $_SESSION['login']=$_POST['mail'];
-            displayTravels();
+            header('Location: index.php');
         }else {
-            displayLoginAlerte();
+            header('Location: index.php?page=alert');
         }
     }else {
-        displayLoginAlerte();
+        header('Location: index.php?page=alert');
     }
 }
 
 function add(){
     $title=$_POST['title'];
     $post=$_POST['post'];
-    $image=$_POST['image'];
+    if (isset($_POST['image'])) {
+        $image=$_POST['image'];
+    }else {
+        $image = "null";
+    }
     setPost($title, $post, $image);
+    header('Location: index.php');
+}
+
+function suppr(){
+    deletePost($_GET['delete']);
+	displayTravels('Travel removed');
 }

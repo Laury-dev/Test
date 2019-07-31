@@ -3,7 +3,7 @@
 ob_start();
 ?>
 <form class="col-6 offset-3 mt-5
- jumbotron" action="index.php?page=login" method="post">
+ jumbotron" action="" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Adresse mail :</label>
     <input type="email" name="mail" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
