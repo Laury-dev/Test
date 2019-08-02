@@ -20,8 +20,12 @@ function login(){
 function add(){
     $title=$_POST['title'];
     $post=$_POST['post'];
-    if (isset($_POST['image'])) {
-        $image=$_POST['image'];
+    if (isset($_FILES['image']) && !empty($_FILES['image']['name'])) {
+        $image = $_FILES['image']['name'];
+		$ext = pathinfo($_FILES['image']['name'])['extension'];
+		if(in_array($ext, ['png','jpg','jpeg'])){
+			move_uploaded_file( $_FILES['image']['tmp_name'], 'images/' . $image);
+		}
     }else {
         $image = "null";
     }

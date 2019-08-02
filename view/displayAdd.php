@@ -4,7 +4,7 @@ ob_start();
 ?>
 
 <div class="container mt-5">
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="exampleInputTitle">Titre :</label>
     <input type="text" class="form-control" name="title" id="exampleInputTitle" placeholder="Entrer titre">
@@ -15,7 +15,7 @@ ob_start();
   </div>
   <div class="form-group">
     <label for="exampleInputImage">Image :</label>
-    <input type="text" class="form-control" name="image" id="exampleCheck1">
+    <input type="file" name="image" id="exampleCheck1">
   </div>
   <button type="submit" class="btn btn-primary">Insérer</button>
 </form>

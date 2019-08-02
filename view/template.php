@@ -31,15 +31,6 @@
       <li class="nav-item">
         <a class="nav-link" href="index.php?page=add">Ajouter le voyage<span class="sr-only"></span></a>
       </li>
-
-      <?php
-      if (isset($_SESSION['login'])) {
-        echo'<li class="nav-item">
-        <a class="nav-link" href="index.php?page=suppr">Supprimer voyage<span class="sr-only"></span></a>
-      </li>';
-      } 
-      ?>
-
     </ul>
     <?php
       if (isset($_SESSION['login'])) {
